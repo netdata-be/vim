@@ -17,3 +17,7 @@ Now build the vim-command-t switch to dir `~/.vim/bundle/vim-command-t/ruby/`
 	cd ~/.vim/bundle/vim-command-t/ruby/command-t/
 	ruby extconf.rb
 	make
+
+References:
+
+* [How to Boost vim](http://nvie.com/posts/how-i-boosted-my-vim/)
