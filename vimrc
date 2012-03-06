@@ -61,6 +61,7 @@ set showmatch       " show matching brackets
 :map <F7> :NERDTreeToggle<CR>
 :map <F8> :TlistToggle<CR>
 :nnoremap <F5> :buffers<CR>:buffer<Space>
+noremap <F9> :call ToggleMouse() <CR>
 
 
 " Map Ctrl-left and Ctrl-right To the next buffer 
@@ -177,3 +178,15 @@ function! UpdateDNSSerialZone()
 	endif
 endfunction
 
+
+function! ToggleMouse()
+	if &mouse == 'a'
+		set mouse=
+		set nonumber
+		echo "Mouse usage disabled"
+	else
+		set mouse=a
+		set number
+		echo "Mouse usage enabled"
+	endif
+endfunction
