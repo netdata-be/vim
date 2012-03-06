@@ -16,6 +16,3 @@
 [submodule "bundle/vim-puppet"]
 	path = bundle/vim-puppet
 	url = git://github.com/rodjek/vim-puppet.git
-[submodule "bundle/molokai"]
-	path = bundle/molokai
-	url = git://github.com/vim-scripts/molokai.git
