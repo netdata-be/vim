@@ -3,17 +3,6 @@
 "
 " Created by wdh
 
-if !has("gui_running")
-	colorscheme molokai
-	highlight Pmenu ctermbg=238 gui=bold
-elseif has("gui_running")
-	colorscheme molokai
-	highlight Pmenu guibg=brown gui=bold
-	set guioptions-=T
-	set mousemodel=popup
-end
-
-call pathogen#infect()
 
 set history=700     " Sets how many lines of history VIM has to remember
 
@@ -47,7 +36,28 @@ set incsearch       " While typing a search command, show immediately where the
                     " so far typed pattern matches.
 set softtabstop=4
 					"
+" Load all plugins hosted in ~/.vim/bundle
+call pathogen#infect()
+call pathogen#helptags()
+
+" Start the molokai color scheme
+if !has("gui_running")
+	colorscheme molokai
+	highlight Pmenu ctermbg=238 gui=bold
+elseif has("gui_running")
+	colorscheme molokai
+	highlight Pmenu guibg=brown gui=bold
+	set guioptions-=T
+	set mousemodel=popup
+end
+
+" When typing a | look if we need to allign
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+" If I write virmrc then reload
+au! BufWritePost .vimrc source %
+au! BufWritePost vimrc source %
+map <Leader>r :source ~/.vimrc<cr>
 
 set mouse=a
 let mapleader = ","
@@ -89,14 +99,6 @@ map <MouseMiddle> <esc>"*p
 map <leader>c :s/^/# /<CR>
 map <leader>C :s/^# //<CR>
 
-map <leader>t2 :setlocal shiftwidth=2<cr>
-map <leader>t4 :setlocal shiftwidth=4<cr>
-map <leader>t8 :setlocal shiftwidth=8<cr>
-
-map <leader>ts2 :set tabstop=2<cr>
-map <leader>ts4 :set tabstop=4<cr>
-map <leader>ts8 :set tabstop=8<cr>
-
 map <leader>s :Gstatus<cr>
 map <leader>p :Git push<cr>
 
@@ -109,19 +111,14 @@ map  <C-l> <C-w>l
 set wildmenu
 set wildmode=list:longest,full
 
-
+" NerdTree Options
 let NERDTreeQuitOnOpen = 1 
 
+" TagList Options
 let Tlist_Use_Right_Window = 1
 let Tlist_Enable_Fold_Column = 1
 let Tlist_Show_One_File = 1
 let Tlist_Sort_Type = "order"
-
-" Set options for miniBufExpl
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:miniBufExplModSelTarget = 1
 
 " Set backspace config
 set backspace=indent,eol,start
@@ -145,10 +142,6 @@ function! HasPaste()
     endif
 endfunction
 
-" If I write virmrc then reload
-au! BufWritePost .vimrc source %
-
-map <Leader>r :source ~/.vimrc<cr>
 
 
  
