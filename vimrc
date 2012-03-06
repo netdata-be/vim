@@ -47,6 +47,7 @@ set incsearch       " While typing a search command, show immediately where the
                     " so far typed pattern matches.
 set softtabstop=4
 					"
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 set mouse=a
 let mapleader = ","
@@ -71,6 +72,14 @@ noremap <tab> :bnext!<CR>
 
 let g:buftabs_only_basename=1
 
+" This saves a LOT of keystrokes
+nnoremap ; :
+" Clear the search highlight by searching for nothing
+" Instead of /dfsfsdfs
+nmap <silent> ,/ :nohlsearch<CR>
+
+" Use sudo to write when using w!!
+cmap w!! w !sudo tee % >/dev/null
 
 map <leader>q :qa!<CR>
 
@@ -140,6 +149,21 @@ endfunction
 au! BufWritePost .vimrc source %
 
 map <Leader>r :source ~/.vimrc<cr>
+
+
+ 
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+
 
 
 " This function is used to update the serial in the SOA from a bind file
