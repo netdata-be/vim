@@ -66,8 +66,9 @@ set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 set background=dark     " when syntax is on the colors will be best visible on a dark background
 set showcmd             " show the command being typed
 set sidescrolloff=5     " Keep 5 lines at the size
-set showmatch       " show matching brackets
+set showmatch			" show matching brackets
 
+" Map F function buttons to different functions
 :map <F2> :call UpdateDNSSerialZone()<cr>
 :map <F7> :NERDTreeToggle<CR>
 :map <F8> :TlistToggle<CR>
@@ -80,6 +81,7 @@ noremap <C-left> :bprev!<CR>
 noremap <C-right> :bnext!<CR> 
 noremap <tab> :bnext!<CR> 
 
+" Buftabs options, only show the base name
 let g:buftabs_only_basename=1
 
 " This saves a LOT of keystrokes
@@ -88,17 +90,19 @@ nnoremap ; :
 " Instead of /dfsfsdfs
 nmap <silent> ,/ :nohlsearch<CR>
 
+
+" Some handy shortcuts "
+""""""""""""""""""""""""
+map <leader>q :qa!<CR>
 " Use sudo to write when using w!!
 cmap w!! w !sudo tee % >/dev/null
 
-map <leader>q :qa!<CR>
-
-map <MouseMiddle> <esc>"*p  
 
 " Make it possible to create comments
 map <leader>c :s/^/# /<CR>
 map <leader>C :s/^# //<CR>
 
+" Fugitive Shortcuts
 map <leader>s :Gstatus<cr>
 map <leader>p :Git push<cr>
 
@@ -107,6 +111,17 @@ map  <C-h> <C-w>h
 map  <C-j> <C-w>j
 map  <C-k> <C-w>k
 map  <C-l> <C-w>l
+
+" Enable bubbling only when we have the 
+if exists(':[e') 
+	" Bubble single lines
+	nmap <C-Up> [e
+	nmap <C-Down> ]e
+	" Bubble multiple lines
+	vmap <C-Up> [egv
+	vmap <C-Down> ]egv
+endif
+
 
 set wildmenu
 set wildmode=list:longest,full
