@@ -6,7 +6,7 @@
 
 set history=700     " Sets how many lines of history VIM has to remember
 
-
+set hidden
 set autoread        " Set to auto read when a file is changed from the outside
 
 syntax on           " Enable syntax highlighting
