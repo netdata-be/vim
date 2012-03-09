@@ -42,10 +42,11 @@ call pathogen#helptags()
 
 " Start the molokai color scheme
 if !has("gui_running")
-	colorscheme molokai
+	"colorscheme molokai
+	colorscheme blackboard
 	highlight Pmenu ctermbg=238 gui=bold
 elseif has("gui_running")
-	colorscheme molokai
+	colorscheme blackboard
 	highlight Pmenu guibg=brown gui=bold
 	set guioptions-=T
 	set mousemodel=popup
@@ -75,11 +76,11 @@ set showmatch			" show matching brackets
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 noremap <F9> :call ToggleMouse() <CR>
 
+nnoremap <silent> <Leader>o :CommandT ~/puppet<CR>
 
 " Map Ctrl-left and Ctrl-right To the next buffer 
 noremap <C-left> :bprev!<CR> 
 noremap <C-right> :bnext!<CR> 
-noremap <tab> :bnext!<CR> 
 
 " Buftabs options, only show the base name
 let g:buftabs_only_basename=1
@@ -96,11 +97,15 @@ nmap <silent> ,/ :nohlsearch<CR>
 map <leader>q :qa!<CR>
 " Use sudo to write when using w!!
 cmap w!! w !sudo tee % >/dev/null
+" Yank/paste to the OS clipboard with ,y and ,p
+nmap <leader>y "+y
+nmap <leader>Y "+yy
+nmap <leader>p "+p
+nmap <leader>P "+P
 
 
 " Make it possible to create comments
-map <leader>c :s/^/# /<CR>
-map <leader>C :s/^# //<CR>
+map <leader>c :bd!<CR>
 
 " Fugitive Shortcuts
 map <leader>s :Gstatus<cr>
@@ -113,14 +118,12 @@ map  <C-k> <C-w>k
 map  <C-l> <C-w>l
 
 " Enable bubbling only when we have the 
-if exists(':[e') 
-	" Bubble single lines
-	nmap <C-Up> [e
-	nmap <C-Down> ]e
-	" Bubble multiple lines
-	vmap <C-Up> [egv
-	vmap <C-Down> ]egv
-endif
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
 
 
 set wildmenu
