@@ -21,7 +21,6 @@ set ruler           " Display the cursor position on the last line of the screen
 set nostartofline   " Stop certain movements from always going to the first character of a line.
                     " While this behaviour deviates from that of Vi, it does what most users
                     " coming from other editors would expect.
-                    
 set laststatus=2    " Always display the status line, even if only one window is displayed
 set visualbell      " Use visual bell instead of beeping when doing something wrong
 set t_vb=           " And reset the terminal code for the visual bell.  If visualbell is set, and
@@ -91,6 +90,8 @@ let gist_post_private = 1
 "Puppet integration"
 set shellcmdflag=-ic
 set kp=pi
+set iskeyword=-,:,@,48-57,_,192-255
+
 
 hi link localWhitespaceError Error
 autocmd Syntax * syn match localWhitespaceError excludenl /\s\+\%#\@<!$\| \+\ze\t/ display containedin=ALL
