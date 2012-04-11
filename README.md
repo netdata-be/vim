@@ -24,6 +24,10 @@ In order for gists to work do the following steps:
 
 Now use the following README to continue configuring gist: https://github.com/mattn/gist-vim
 
+run the following command to ignore untracked changes:
+
+    for s in `git submodule  --quiet foreach 'echo $name'` ; do git config submodule.$s.ignore untracked ; done
+
 References:
 
 * [How to Boost vim](http://nvie.com/posts/how-i-boosted-my-vim/)

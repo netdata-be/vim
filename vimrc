@@ -88,6 +88,10 @@ nnoremap <silent> <Leader>o :CommandT ~/puppet<CR>
 let gist_show_privates = 1
 let gist_post_private = 1
 
+"Puppet integration"
+set shellcmdflag=-ic
+set kp=pi
+
 hi link localWhitespaceError Error
 autocmd Syntax * syn match localWhitespaceError excludenl /\s\+\%#\@<!$\| \+\ze\t/ display containedin=ALL
 
