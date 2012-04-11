@@ -18,6 +18,12 @@ Now build the vim-command-t switch to dir `~/.vim/bundle/vim-command-t/ruby/`
 	ruby extconf.rb
 	make
 
+In order for gists to work do the following steps:
+
+    git config --global github.user netdata
+
+Now use the following README to continue configuring gist: https://github.com/mattn/gist-vim
+
 References:
 
 * [How to Boost vim](http://nvie.com/posts/how-i-boosted-my-vim/)

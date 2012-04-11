@@ -40,3 +40,15 @@
 [submodule "bundle/vim-searchComplete"]
 	path = bundle/vim-searchComplete
 	url = git://github.com/vim-scripts/SearchComplete.git
+[submodule "bundle/vim-gitolite"]
+	path = bundle/vim-gitolite
+	url = git://github.com/tmatilai/gitolite.vim.git
+[submodule "bundle/vim-syntastic"]
+	path = bundle/vim-syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule "bundle/gist-vim"]
+	path = bundle/gist-vim
+	url = git://github.com/mattn/gist-vim.git
+[submodule "bundle/webapi-vim"]
+	path = bundle/webapi-vim
+	url = git://github.com/mattn/webapi-vim.git

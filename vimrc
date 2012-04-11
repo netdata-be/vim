@@ -84,6 +84,9 @@ noremap <F9> :call ToggleMouse() <CR>
 
 nnoremap <silent> <Leader>o :CommandT ~/puppet<CR>
 
+" Gist settings
+let gist_show_privates = 1
+let gist_post_private = 1
 
 hi link localWhitespaceError Error
 autocmd Syntax * syn match localWhitespaceError excludenl /\s\+\%#\@<!$\| \+\ze\t/ display containedin=ALL
