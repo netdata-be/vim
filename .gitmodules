@@ -34,3 +34,9 @@
 [submodule "bundle/vim-blackboard"]
 	path = bundle/vim-blackboard
 	url = git://github.com/nelstrom/vim-blackboard.git
+[submodule "bundle/vim-HTML-AutoCloseTag"]
+	path = bundle/vim-HTML-AutoCloseTag
+	url = git://github.com/vim-scripts/HTML-AutoCloseTag.git
+[submodule "bundle/vim-searchComplete"]
+	path = bundle/vim-searchComplete
+	url = git://github.com/vim-scripts/SearchComplete.git
