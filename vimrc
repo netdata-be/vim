@@ -30,11 +30,13 @@ set t_vb=           " And reset the terminal code for the visual bell.  If visua
 set number          " Display line numbers on the left
 set numberwidth=5   " The amount of digits reserved for the line numbers 99999 
 set pastetoggle=<F12> " Use <F11> to toggle between 'paste' and 'nopaste'
-set shiftwidth=4    " An indent tab will be x spaces wide
-set tabstop=4       " A normal tab will be x spaces wide
+set shiftwidth=2    " An indent tab will be x spaces wide
+set tabstop=2       " A normal tab will be x spaces wide
 set incsearch       " While typing a search command, show immediately where the
                     " so far typed pattern matches.
-set softtabstop=4
+set softtabstop=2
+set expandtab
+set scrolloff=5     " Keep x lines below and above the cursor
 					"
 " Load all plugins hosted in ~/.vim/bundle
 call pathogen#infect()
@@ -52,6 +54,9 @@ elseif has("gui_running")
 	set mousemodel=popup
 end
 
+" Use :Grep to search between files in our puppet dir
+command! -nargs=+ Grep execute "noautocmd silent lvimgrep /<args>/gj ~/puppet/**/*.pp" | lopen 10
+
 " When typing a | look if we need to allign
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
@@ -59,6 +64,7 @@ inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 au! BufWritePost .vimrc source %
 au! BufWritePost vimrc source %
 map <Leader>r :source ~/.vimrc<cr>
+map <Leader>e :edit ~/.vimrc<cr>
 
 set mouse=a
 let mapleader = ","
@@ -77,6 +83,10 @@ set showmatch			" show matching brackets
 noremap <F9> :call ToggleMouse() <CR>
 
 nnoremap <silent> <Leader>o :CommandT ~/puppet<CR>
+
+
+hi link localWhitespaceError Error
+autocmd Syntax * syn match localWhitespaceError excludenl /\s\+\%#\@<!$\| \+\ze\t/ display containedin=ALL
 
 " Map Ctrl-left and Ctrl-right To the next buffer 
 noremap <C-left> :bprev!<CR> 
