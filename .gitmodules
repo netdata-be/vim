@@ -55,3 +55,6 @@
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule "bundle/vim-bind"]
+	path = bundle/vim-bind
+	url = git://github.com/netdata/vim-bind.git
