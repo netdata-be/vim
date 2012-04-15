@@ -75,7 +75,6 @@ set sidescrolloff=5     " Keep 5 lines at the size
 set showmatch			" show matching brackets
 
 " Map F function buttons to different functions
-:map <F2> :call UpdateDNSSerialZone()<cr>
 :map <F7> :NERDTreeToggle<CR>
 :map <F8> :TlistToggle<CR>
 :nnoremap <F5> :buffers<CR>:buffer<Space>
@@ -178,9 +177,6 @@ function! HasPaste()
     endif
 endfunction
 
-
-
- 
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
