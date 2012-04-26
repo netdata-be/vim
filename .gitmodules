@@ -7,9 +7,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "bundle/taglist.vim"]
-	path = bundle/taglist.vim
-	url = git://github.com/vim-scripts/taglist.vim.git
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
@@ -58,3 +55,6 @@
 [submodule "bundle/vim-puppet"]
 	path = bundle/vim-puppet
 	url = git://github.com/netdata/vim-puppet.git
+[submodule "bundle/vim-tagbar"]
+	path = bundle/vim-tagbar
+	url = git://github.com/majutsushi/tagbar.git

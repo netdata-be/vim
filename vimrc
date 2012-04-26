@@ -76,7 +76,7 @@ set showmatch			" show matching brackets
 
 " Map F function buttons to different functions
 :map <F7> :NERDTreeToggle<CR>
-:map <F8> :TlistToggle<CR>
+map <F8> :TagbarToggle<CR>
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 noremap <F9> :call ToggleMouse() <CR>
 
@@ -90,7 +90,10 @@ let gist_post_private = 1
 set shellcmdflag=-ic
 set kp=pi
 set iskeyword=-,:,@,48-57,_,192-255
+set tags=tags;/  " search first in current directory then file directory for tag file
 
+" The swap file will be created in the first directory where this is possible.
+set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 
 hi link localWhitespaceError Error
 autocmd Syntax * syn match localWhitespaceError excludenl /\s\+\%#\@<!$\| \+\ze\t/ display containedin=ALL
@@ -149,11 +152,6 @@ set wildmode=list:longest,full
 " NerdTree Options
 let NERDTreeQuitOnOpen = 1 
 
-" TagList Options
-let Tlist_Use_Right_Window = 1
-let Tlist_Enable_Fold_Column = 1
-let Tlist_Show_One_File = 1
-let Tlist_Sort_Type = "order"
 
 " Set backspace config
 set backspace=indent,eol,start
