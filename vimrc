@@ -3,6 +3,21 @@
 "
 " Created by wdh
 
+"""" Load all plugins using pathogen """""""""""""""""""
+call pathogen#infect()
+call pathogen#helptags()
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if !has("gui_running")
+	"colorscheme molokai
+	colorscheme blackboard
+	highlight Pmenu ctermbg=238 gui=bold
+elseif has("gui_running")
+	colorscheme blackboard
+	highlight Pmenu guibg=brown gui=bold
+	set guioptions-=T
+	set mousemodel=popup
+end
 
 set history=700     " Sets how many lines of history VIM has to remember
 
@@ -36,132 +51,101 @@ set incsearch       " While typing a search command, show immediately where the
 set softtabstop=2
 set expandtab
 set scrolloff=5     " Keep x lines below and above the cursor
-					"
-" Load all plugins hosted in ~/.vim/bundle
-call pathogen#infect()
-call pathogen#helptags()
-
-" Start the molokai color scheme
-if !has("gui_running")
-	"colorscheme molokai
-	colorscheme blackboard
-	highlight Pmenu ctermbg=238 gui=bold
-elseif has("gui_running")
-	colorscheme blackboard
-	highlight Pmenu guibg=brown gui=bold
-	set guioptions-=T
-	set mousemodel=popup
-end
-
-" Use :Grep to search between files in our puppet dir
-command! -nargs=+ Grep execute "noautocmd silent lvimgrep /<args>/gj ~/puppet/**/*.pp" | lopen 10
-
-" When typing a | look if we need to allign
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-
-" If I write virmrc then reload
-au! BufWritePost .vimrc source %
-au! BufWritePost vimrc source %
-map <Leader>r :source ~/.vimrc<cr>
-map <Leader>e :edit ~/.vimrc<cr>
 
 set mouse=a
-let mapleader = ","
 filetype plugin indent on   " Use indentation as specified in the ft plugin
+set wildmenu
+set wildmode=list:longest,full
 set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
-set background=dark     " when syntax is on the colors will be best visible on a dark background
-set showcmd             " show the command being typed
+set background=dark         " when syntax is on the colors will be best visible on a dark background
+set showcmd                 " show the command being typed
 set sidescrolloff=5     " Keep 5 lines at the size
-set showmatch			" show matching brackets
-
-" Map F function buttons to different functions
-:map <F7> :NERDTreeToggle<CR>
-map <F8> :TagbarToggle<CR>
-:nnoremap <F5> :buffers<CR>:buffer<Space>
-noremap <F9> :call ToggleMouse() <CR>
-
-nnoremap <silent> <Leader>o :CommandT ~/puppet<CR>
-
-" Gist settings
-let gist_show_privates = 1
-let gist_post_private = 1
-
-"Puppet integration"
-set shellcmdflag=-ic
-set kp=pi
-set iskeyword=-,:,@,48-57,_,192-255
-set tags=tags;/  " search first in current directory then file directory for tag file
+set showmatch			      " show matching brackets
 
 " The swap file will be created in the first directory where this is possible.
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
 
-hi link localWhitespaceError Error
-autocmd Syntax * syn match localWhitespaceError excludenl /\s\+\%#\@<!$\| \+\ze\t/ display containedin=ALL
+"""""" Mapleader shortcuts """""""""""""""""""""""""""""
+let mapleader = ","
 
-" Map Ctrl-left and Ctrl-right To the next buffer 
-noremap <C-left> :bprev!<CR> 
-noremap <C-right> :bnext!<CR> 
-
-" Buftabs options, only show the base name
-let g:buftabs_only_basename=1
-
-" This saves a LOT of keystrokes
-nnoremap ; :
-" Clear the search highlight by searching for nothing
-" Instead of /dfsfsdfs
-nmap <silent> ,/ :nohlsearch<CR>
-
-
-" Some handy shortcuts "
-""""""""""""""""""""""""
+map <Leader>r :source ~/.vimrc<cr>
+map <Leader>e :edit ~/.vimrc<cr>
+nnoremap <silent> <Leader>o :CommandT ~/puppet<CR>
 map <leader>q :qa!<CR>
-" Use sudo to write when using w!!
-cmap w!! w !sudo tee % >/dev/null
-" Yank/paste to the OS clipboard with ,y and ,p
-nmap <leader>y "+y
-nmap <leader>Y "+yy
-nmap <leader>p "+p
-nmap <leader>P "+P
-
-
-" Make it possible to create comments
-map <leader>c :bd!<CR>
-
-" Fugitive Shortcuts
 map <leader>s :Gstatus<cr>
 map <leader>p :Git push<cr>
+map <leader>c :bd!<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Window naviation shortcuts
+""""" F function buttons """""""""""""""""""""""""""""""
+:map <F7> :NERDTreeToggle<CR>
+map <F8> :TagbarToggle<CR>
+:nnoremap <F5> :buffers<CR>:buffer<Space>
+noremap <F9> :call ToggleMouse() <CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""" Bubble Single Lines """""""""""""""""""""""""""""""
+nmap <C-Up> [e
+nmap <C-Down> ]e
+"""" Bubble Multiple Lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""" Bufftabs optiosn """""""""""""""""""""""""""""""""""
+noremap <C-left> :bprev!<CR>
+noremap <C-right> :bnext!<CR>
+let g:buftabs_only_basename=1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""" Some Handy Shortcuts """""""""""""""""""""""""""""""
+cmap w!! w !sudo tee % >/dev/nulld
+nnoremap ; :
+nmap <silent> ,/ :nohlsearch<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""" Reload .vimrc  """"""""""""""""""""""""""""""""""""
+au! BufWritePost .vimrc source %
+au! BufWritePost vimrc source %
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""" Mark trailing whitespaces as error """""""""""""""""
+hi link localWhitespaceError Error
+autocmd Syntax * syn match localWhitespaceError excludenl /\s\+\%#\@<!$\| \+\ze\t/ display containedin=ALL
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""" Window Nav """"""""""""""""""""""""""""""""""""""""
 map  <C-h> <C-w>h
 map  <C-j> <C-w>j
 map  <C-k> <C-w>k
 map  <C-l> <C-w>l
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Enable bubbling only when we have the 
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+"""" Gist settings  """"""""""""""""""""""""""""""""""""
+let gist_show_privates = 1
+let gist_post_private = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-set wildmenu
-set wildmode=list:longest,full
+""""" Puppet Integration """""""""""""""""""""""""""""""
+command! -nargs=+ Grep execute "noautocmd silent lvimgrep /<args>/gj ~/puppet/**/*.pp" | lopen 10
+set shellcmdflag=-ic
+set kp=pi
+set iskeyword=-,:,@,48-57,_,192-255
+set tags=tags;~/
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " NerdTree Options
-let NERDTreeQuitOnOpen = 1 
-
+let NERDTreeQuitOnOpen = 1
 
 " Set backspace config
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 
-""""""""""""""""""""""""""""""
-" => Statusline
-""""""""""""""""""""""""""""""
+"""" Status line """""""""""""""""""""""""""""""""""""""
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ path:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c\ \ \ %{fugitive#statusline()}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""" Some Functions """"""""""""""""""""""""""""""""""""
 function! CurDir()
     let curdir = substitute(getcwd(), '/home/wdh', "~/", "g")
     return curdir
@@ -175,17 +159,6 @@ function! HasPaste()
     endif
 endfunction
 
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-
 function! ToggleMouse()
 	if &mouse == 'a'
 		set mouse=
@@ -197,3 +170,4 @@ function! ToggleMouse()
 		echo "Mouse usage enabled"
 	endif
 endfunction
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
