@@ -46,3 +46,4 @@ Next run the following command inside the puppet dir:
 References:
 
 * [How to Boost vim](http://nvie.com/posts/how-i-boosted-my-vim/)
+
