@@ -99,7 +99,7 @@ let g:buftabs_only_basename=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """ Some Handy Shortcuts """""""""""""""""""""""""""""""
-cmap w!! w !sudo tee % >/dev/nulld
+cmap w!! w !sudo tee % >/dev/null
 nnoremap ; :
 nmap <silent> ,/ :nohlsearch<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
