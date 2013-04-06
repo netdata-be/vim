@@ -128,6 +128,9 @@ if exists('+relativenumber')
     autocmd InsertLeave * setlocal relativenumber
 endif
 
+" run the rooter plugin after a session is loaded
+autocmd BufRead,BufNewFile * Rooter
+
 """""" Mapleader shortcuts """""""""""""""""""""""""""""
 let mapleader = ","
 
