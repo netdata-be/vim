@@ -19,3 +19,5 @@ test -d ~/.fonts || mkdir ~/.fonts
 cp ~/.vim/bundle/powerline/font/10-powerline-symbols.conf ~/.fonts
 fc-cache -vf ~/.font
 
+test -d ~/.vimundo || mkdir ~/.vimundo
+
