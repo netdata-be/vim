@@ -34,12 +34,6 @@
 [submodule "bundle/vim-gitolite"]
 	path = bundle/vim-gitolite
 	url = git://github.com/tmatilai/gitolite.vim.git
-[submodule "bundle/gist-vim"]
-	path = bundle/gist-vim
-	url = git://github.com/mattn/gist-vim.git
-[submodule "bundle/webapi-vim"]
-	path = bundle/webapi-vim
-	url = git://github.com/mattn/webapi-vim.git
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
