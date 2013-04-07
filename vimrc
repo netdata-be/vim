@@ -8,39 +8,42 @@
 call pathogen#infect()
 call pathogen#helptags()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-if !has("gui_running")
-  let g:molokai_original=0
-  colorscheme molokai
- elseif has("gui_running")
-  highlight Pmenu guibg=brown gui=bold
-  set guioptions-=T
-  set mousemodel=popup
-  highlight Pmenu ctermbg=238 gui=bold
-  " remove the menu bar
-  set guioptions-=m
-  " and remove the toolbar
-  set guioptions-=T
-  " and enable the horizontal scrollbar
-  "set guioptions+=b
-  " and remove the vertical scrollbar
-  set guioptions-=r
-  " no left scrollbar
-  set guioptions-=L
-  " use console style dialogs
-  set guioptions+=c
+if has("gui_running")
+    " GUI is running or is about to start.
+    " Maximize GVim window.
+    set lines=37 columns=135
+    " remove the menu bar
+    set guioptions-=m
+    " and remove the toolbar
+    set guioptions-=T
+    " and enable the horizontal scrollbar
+    "set guioptions+=b
+    " and remove the vertical scrollbar
+    set guioptions-=r
+    " no left scrollbar
+    set guioptions-=L
+    " use console style dialogs
+    set guioptions+=c
+    " but always show the tabline (window otherwise resizes when first showing tabline)
+    set showtabline=2
 
-  if has("win32") || has("win64")
-    set guifont=Consolas:h10:cANSI
-  endif
-
+    if has("win32") || has("win64")
+        set guifont=Consolas:h10:cANSI
+    endif
 end
 
+" color scheme
+let g:molokai_original=0
+colorscheme molokai
+
+" first some settings copied from Debian config
 set showtabline=2
 set nocompatible                      " no compatibility with old-skool vi
-set history=700                       " Sets how many lines of history VIM has to remember
+set history=1000                      " keep more history (was 50 in Debian config)
 
-set hidden
+set hidden                            " allow Vim to switch to another buffer while the current is not saved
 set autoread                          " Set to auto read when a file is changed from the outside
+set spell
 
 
 set list                              " show special chars, such as tab and eol
@@ -52,10 +55,8 @@ set hlsearch                          " Highlight searches (use <C-L> to tempora
 set ignorecase                        " Use case insensitive search, except when using capital letters
 set smartcase
 set autoindent                        " When opening a new line and no filetype-specific indenting is enabled, keep
-                                      " the same indent as the line you're currently on. Useful for READMEs, etc.
 set nowrap                            " disable wrapping of text
 set showbreak=…\                      " when soft-wrapping, start lines which continue the previous line with these chars
-
 set ruler                             " Display the cursor position on the last line of the screen or in the status
 set title                             " set the title
 set linebreak                         " only wrap after words, not inside words
@@ -170,6 +171,7 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap ; :
 nnoremap <silent> ,/ :nohlsearch<CR>
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+nnoremap <Space> za
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """" Reload .vimrc  """"""""""""""""""""""""""""""""""""
@@ -181,6 +183,12 @@ au! BufWritePost vimrc source %
 hi link localWhitespaceError Error
 autocmd Syntax * syn match localWhitespaceError excludenl /\s\+\%#\@<!$\| \+\ze\t/ display containedin=ALL
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" settings for indent lines ==============================================
+let g:indentLine_color_gui='#31373a'
+let g:indentLine_char='│'
+let g:indentLine_indentLevel=7
+
 
 """" Window Nav """"""""""""""""""""""""""""""""""""""""
 map  <C-h> <C-w>h
