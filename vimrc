@@ -1,4 +1,5 @@
 "
+"
 " ~/.vimrc 
 "
 " Created by wdh
@@ -7,7 +8,6 @@
 call pathogen#infect()
 call pathogen#helptags()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 if !has("gui_running")
   let g:molokai_original=0
   colorscheme molokai
@@ -28,8 +28,6 @@ if !has("gui_running")
   set guioptions-=L
   " use console style dialogs
   set guioptions+=c
-  " but always show the tabline (window otherwise resizes when first showing tabline)
-  set showtabline=2
 
   if has("win32") || has("win64")
     set guifont=Consolas:h10:cANSI
@@ -37,6 +35,7 @@ if !has("gui_running")
 
 end
 
+set showtabline=2
 set nocompatible                      " no compatibility with old-skool vi
 set history=700                       " Sets how many lines of history VIM has to remember
 
@@ -99,6 +98,7 @@ set background=dark                   " when syntax is on the colors will be bes
 set showcmd                           " show the command being typed
 set sidescrolloff=5                   " Keep 5 lines at the size
 set showmatch			                    " show matching brackets
+set encoding=utf-8
 
 " The swap file will be created in the first directory where this is possible.
 set dir=~/.vimswap//,/var/tmp//,/tmp//,.
@@ -209,8 +209,13 @@ set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 
 """" Status line """""""""""""""""""""""""""""""""""""""
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ path:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c\ \ \ %{fugitive#statusline()}
+"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ path:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c\ \ \ %{fugitive#statusline()}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"==================================
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set noshowmode            " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
 
 " the following line makes vim ignore camelCase and CamelCase words so they
 " are not highlighted as spelling mistakes
@@ -220,14 +225,6 @@ autocmd Syntax * syn match CamelCase "\(\<\|_\)\%(\u\l*\)\{2,}\(\>\|_\)\|\<\%(\l
 function! CurDir()
     let curdir = substitute(getcwd(), '/home/wdh', "~/", "g")
     return curdir
-endfunction
-
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    else
-        return ''
-    endif
 endfunction
 
 function! ToggleMouse()
