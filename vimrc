@@ -77,6 +77,8 @@ set diffopt+=iwhite                   " diff options: ignore whitespace
 set t_Co=256                          " force the terminal to use 256 colors
 set display+=lastline                 " display wrapped lines at bottom instead of @ symbols
 set numberwidth=5                     " The amount of digits reserved for the line numbers 99999 
+set foldlevelstart=99                 " by default, open all folds
+set foldmethod=indent                 " indent fold method by default
 set pastetoggle=<F12>                 " Use <F11> to toggle between 'paste' and 'nopaste'
 set shiftwidth=2                      " An indent tab will be x spaces wide
 set tabstop=2                         " A normal tab will be x spaces wide
@@ -120,7 +122,6 @@ set titlestring+=%t                   " the current filename
 set titlestring+=%(\ %M%)             " modified flag
 set titlestring+=%(\ (%{expand(\"%:~:h\")})%)  " relative path to current file
 set titlestring+=%(\ %a%)             " extra attributes
-" }}}
 
 " Enable relativenumber only when in normal mode
 if exists('+relativenumber')
@@ -212,7 +213,19 @@ set whichwrap+=<,>,h,l
 "set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ path:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c\ \ \ %{fugitive#statusline()}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Configuration of plugins, syntax, colorschemes {{{
+" settings for ctrlp =====================================================
+let g:ctrlp_show_hidden = 0
+let g:ctrlp_map = '<leader>t'
+let g:ctrlp_max_height = 25
+let g:ctrlp_switch_buffer = 'ET'
+let g:ctrlp_extensions = ['tag', 'buffertag', 'filetype']
+noremap <leader>] :CtrlPTag<CR>
+noremap <leader>} :CtrlPBufTag<CR>
+noremap <leader>f :CtrlPFiletype<CR>
 "==================================
+" }}}
+
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set noshowmode            " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
@@ -239,3 +252,5 @@ function! ToggleMouse()
   endif
 endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" vim: fdm=marker fdl=0
