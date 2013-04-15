@@ -176,7 +176,7 @@ map <F3> :set expandtab!<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """" Reload .vimrc  """"""""""""""""""""""""""""""""""""
-au! BufWritePost .vimrc source %
+"au! BufWritePost .vimrc source %
 au! BufWritePost vimrc source %
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
