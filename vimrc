@@ -5,6 +5,7 @@
 " Created by wdh
 
 """" Load all plugins using pathogen """""""""""""""""""
+source ~/.vim/bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
