@@ -193,6 +193,11 @@ let g:indentLine_color_gui='#31373a'
 let g:indentLine_char='│'
 let g:indentLine_indentLevel=7
 
+" Settings for detectindent {{{
+:let g:detectindent_preferred_expandtab = 1
+:let g:detectindent_preferred_indent = 2
+:autocmd BufReadPost * :DetectIndent
+" }}}
 
 """" Window Nav """"""""""""""""""""""""""""""""""""""""
 map  <C-h> <C-w>h
