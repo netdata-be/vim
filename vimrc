@@ -33,8 +33,10 @@ if has("gui_running")
 end
 
 " color scheme
-let g:molokai_original=0
-colorscheme molokai
+"let g:molokai_original=0
+"colorscheme molokai
+colorscheme solarized
+let g:solarized_termcolors=256
 
 " first some settings copied from Debian config
 set showtabline=2
