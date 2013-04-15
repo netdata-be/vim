@@ -172,6 +172,7 @@ nnoremap ; :
 nnoremap <silent> ,/ :nohlsearch<CR>
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 nnoremap <Space> za
+map <F3> :set expandtab!<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """" Reload .vimrc  """"""""""""""""""""""""""""""""""""
