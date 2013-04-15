@@ -55,3 +55,6 @@
 [submodule "bundle/ctrlp-filetype"]
 	path = bundle/ctrlp-filetype
 	url = https://github.com/endel/ctrlp-filetype.vim.git
+[submodule "bundle/indent-guides"]
+	path = bundle/indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git
