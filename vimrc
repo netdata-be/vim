@@ -43,7 +43,7 @@ set history=1000                      " keep more history (was 50 in Debian conf
 
 set hidden                            " allow Vim to switch to another buffer while the current is not saved
 set autoread                          " Set to auto read when a file is changed from the outside
-set spell
+"set spell
 
 
 set list                              " show special chars, such as tab and eol
