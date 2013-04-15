@@ -178,15 +178,15 @@ nnoremap <Space> za
 map <F3> :set expandtab!<CR>
 " }}}
 
-"""" Reload .vimrc  """"""""""""""""""""""""""""""""""""
+" Auto Reload .vimrc {{{
 "au! BufWritePost .vimrc source %
 au! BufWritePost vimrc source %
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
 
-""" Mark trailing whitespaces as error """""""""""""""""
+" Mark trailing whitespaces as error {{{
 hi link localWhitespaceError Error
 autocmd Syntax * syn match localWhitespaceError excludenl /\s\+\%#\@<!$\| \+\ze\t/ display containedin=ALL
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
 
 " Settings for detectindent {{{
 :let g:detectindent_preferred_expandtab = 1
@@ -201,20 +201,20 @@ let g:indentLine_char = '┆'
 " }}}
 
 
-"""" Window Nav """"""""""""""""""""""""""""""""""""""""
+" Window Nav - withouth ctrl-w {{{
 map  <C-h> <C-w>h
 map  <C-j> <C-w>j
 map  <C-k> <C-w>k
 map  <C-l> <C-w>l
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
 
-""""" Puppet Integration """""""""""""""""""""""""""""""
+" Puppet Integration {{{
 command! -nargs=+ Grep execute "noautocmd silent lvimgrep /<args>/gj ~/puppet/**/*.pp" | lopen 10
 "set shellcmdflag=-ic
 set kp=pi
 set iskeyword=-,:,@,48-57,_,192-255
 set tags=tags;~/
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
 
 " settings for ultisnips {{{
 let g:UltiSnipsExpandTrigger="<tab>"
