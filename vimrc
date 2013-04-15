@@ -199,6 +199,13 @@ let g:indentLine_indentLevel=7
 :autocmd BufReadPost * :DetectIndent
 " }}}
 
+" Settings for indentLine {{{
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#A4E57E'
+let g:indentLine_char = '┆'
+" }}}
+
+
 """" Window Nav """"""""""""""""""""""""""""""""""""""""
 map  <C-h> <C-w>h
 map  <C-j> <C-w>j
@@ -277,5 +284,4 @@ function! ToggleMouse()
   endif
 endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " vim: fdm=marker fdl=0
