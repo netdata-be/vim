@@ -1,14 +1,16 @@
 "
 "
-" ~/.vimrc 
+" ~/.vimrc
 "
 " Created by wdh
 
-"""" Load all plugins using pathogen """""""""""""""""""
+"""" Load all plugins using pathogen {{{
 source ~/.vim/bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
+
+" Settings for the gui_running {{{
 if has("gui_running")
     " GUI is running or is about to start.
     " Maximize GVim window.
@@ -32,6 +34,7 @@ if has("gui_running")
         set guifont=Consolas:h10:cANSI
     endif
 end
+" }}}
 
 " color scheme
 "let g:molokai_original=0
@@ -127,16 +130,11 @@ set titlestring+=%(\ %M%)             " modified flag
 set titlestring+=%(\ (%{expand(\"%:~:h\")})%)  " relative path to current file
 set titlestring+=%(\ %a%)             " extra attributes
 
-" Enable relativenumber only when in normal mode
-if exists('+relativenumber')
-    autocmd InsertEnter * setlocal number
-    autocmd InsertLeave * setlocal relativenumber
-endif
 
 " run the rooter plugin after a session is loaded
 autocmd BufRead,BufNewFile * Rooter
 
-"""""" Mapleader shortcuts """""""""""""""""""""""""""""
+" Mapleader shortcuts {{{
 let mapleader = ","
 
 map <Leader>r :source ~/.vimrc<cr>
@@ -146,15 +144,16 @@ map <leader>q :qa!<CR>
 map <leader>s :Gstatus<cr>
 map <leader>p :Git push<cr>
 map <leader>c :bd!<CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
 
-""""" F function buttons """""""""""""""""""""""""""""""
+"F function buttons {{{
 :map <F7> :NERDTreeToggle<CR>
 map <F8> :TagbarToggle<CR>
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 noremap <F9> :call ToggleMouse() <CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
 
+" Bubbling {{{
 """" Bubble Single Lines """""""""""""""""""""""""""""""
 nmap <C-Up> [e
 nmap <C-Down> ]e
@@ -162,21 +161,22 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
 
-""" Bufftabs optiosn """""""""""""""""""""""""""""""""""
+" Bufftabs optiosn {{{
 noremap <C-left> :bprev!<CR>
 noremap <C-right> :bnext!<CR>
 let g:buftabs_only_basename=1
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
 
-""" Some Handy Shortcuts """""""""""""""""""""""""""""""
+" Some Handy Shortcuts {{{
 cmap w!! w !sudo tee % >/dev/null
 nnoremap ; :
 nnoremap <silent> ,/ :nohlsearch<CR>
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 nnoremap <Space> za
 map <F3> :set expandtab!<CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
 
 """" Reload .vimrc  """"""""""""""""""""""""""""""""""""
 "au! BufWritePost .vimrc source %
@@ -187,11 +187,6 @@ au! BufWritePost vimrc source %
 hi link localWhitespaceError Error
 autocmd Syntax * syn match localWhitespaceError excludenl /\s\+\%#\@<!$\| \+\ze\t/ display containedin=ALL
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" settings for indent lines ==============================================
-let g:indentLine_color_gui='#31373a'
-let g:indentLine_char='│'
-let g:indentLine_indentLevel=7
 
 " Settings for detectindent {{{
 :let g:detectindent_preferred_expandtab = 1
@@ -211,11 +206,6 @@ map  <C-h> <C-w>h
 map  <C-j> <C-w>j
 map  <C-k> <C-w>k
 map  <C-l> <C-w>l
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""" Gist settings  """"""""""""""""""""""""""""""""""""
-let gist_show_privates = 1
-let gist_post_private = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"" Puppet Integration """""""""""""""""""""""""""""""
@@ -241,12 +231,8 @@ let NERDTreeQuitOnOpen = 1
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 
-"""" Status line """""""""""""""""""""""""""""""""""""""
-"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ path:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c\ \ \ %{fugitive#statusline()}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Configuration of plugins, syntax, colorschemes {{{
-" settings for ctrlp =====================================================
+" settings for ctrlp {{{
 let g:ctrlp_show_hidden = 0
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_max_height = 25
@@ -255,18 +241,19 @@ let g:ctrlp_extensions = ['tag', 'buffertag', 'filetype']
 noremap <leader>] :CtrlPTag<CR>
 noremap <leader>} :CtrlPBufTag<CR>
 noremap <leader>f :CtrlPFiletype<CR>
-"==================================
+" }}}
 " }}}
 
+" Powerline settings {{{
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set noshowmode            " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-
+" }}}
 
 " the following line makes vim ignore camelCase and CamelCase words so they
 " are not highlighted as spelling mistakes
 autocmd Syntax * syn match CamelCase "\(\<\|_\)\%(\u\l*\)\{2,}\(\>\|_\)\|\<\%(\l\l*\)\%(\u\l*\)\{1,}\>" transparent containedin=.*Comment.*,.*String.*,VimwikiLink contains=@NoSpell contained
 
-"""" Some Functions """"""""""""""""""""""""""""""""""""
+" Some Functions {{{
 function! CurDir()
     let curdir = substitute(getcwd(), '/home/wdh', "~/", "g")
     return curdir
@@ -283,5 +270,12 @@ function! ToggleMouse()
     echo "Mouse usage enabled"
   endif
 endfunction
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Enable relativenumber only when in normal mode
+if exists('+relativenumber')
+    autocmd InsertEnter * setlocal number
+    autocmd InsertLeave * setlocal relativenumber
+endif
+
+" }}}
 " vim: fdm=marker fdl=0
