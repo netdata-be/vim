@@ -79,3 +79,9 @@
 [submodule "bundle/indentline"]
 	path = bundle/indentline
 	url = https://github.com/Yggdroot/indentLine.git
+[submodule "bundle/neocomplcache-ultisnips"]
+	path = bundle/neocomplcache-ultisnips
+	url = https://github.com/JazzCore/neocomplcache-ultisnips.git
+[submodule "bundle/neocomplcache"]
+	path = bundle/neocomplcache
+	url = https://github.com/Shougo/neocomplcache.git

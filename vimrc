@@ -36,11 +36,10 @@ if has("gui_running")
 end
 " }}}
 
-" color scheme
-"let g:molokai_original=0
-"colorscheme molokai
+" color scheme {{{
 colorscheme solarized
 let g:solarized_termcolors=256
+" }}}
 
 " first some settings copied from Debian config
 set showtabline=2
@@ -87,15 +86,20 @@ set numberwidth=5                     " The amount of digits reserved for the li
 set foldlevelstart=99                 " by default, open all folds
 set foldmethod=indent                 " indent fold method by default
 set pastetoggle=<F12>                 " Use <F11> to toggle between 'paste' and 'nopaste'
+set incsearch                         " While typing a search command, show immediately where the
+" Tabs / spaces options {{{
 set shiftwidth=2                      " An indent tab will be x spaces wide
 set tabstop=2                         " A normal tab will be x spaces wide
-set incsearch                         " While typing a search command, show immediately where the
                                       " so far typed pattern matches.
 set softtabstop=2
 set expandtab
+" }}}
+
 set scrolloff=5                       " Keep x lines below and above the cursor
+
 set noswapfile                        " disable swap files, most of the time they are just annoying
 set nobackup                          " don't make a (permanent) backup when saving files
+set dir=~/.vimswap//,/var/tmp//,/tmp//, " The swap file will be created in the first directory where this is possible.
 
 set fillchars=vert:\ ,fold:-          " fill vertical splitlines with spaces instead of the ugly |-char; Default - for folds
 set mouse=a
@@ -109,9 +113,14 @@ set sidescrolloff=5                   " Keep 5 lines at the size
 set showmatch			                    " show matching brackets
 set encoding=utf-8
 
-" The swap file will be created in the first directory where this is possible.
-set dir=~/.vimswap//,/var/tmp//,/tmp//,.
+let g:acp_enableAtStartup = 0              " Disable AutoComplPop.
+let g:neocomplcache_enable_at_startup = 1  " Launches neocomplcache automatically on vim startup.
+let g:neocomplcache_enable_auto_select = 1 " AutoComplPop like behavior.
 
+
+
+
+" Option for newer vim version {{{
 if v:version > '702'
     if $VIM !~ 'vimtouch'             " check that we are not running on Android (VimTouch)
         set undofile                  " save undo history to an external file
@@ -122,14 +131,15 @@ if v:version > '702'
     set cryptmethod=blowfish          " use stronger blowfish encryption algorithm
     set colorcolumn=80,120            " show a vertical line at these positions
 endif
+" }}}
 
-" title string
+" title string {{{
 set titlestring=                      " completely reset titlestring
 set titlestring+=%t                   " the current filename
 set titlestring+=%(\ %M%)             " modified flag
 set titlestring+=%(\ (%{expand(\"%:~:h\")})%)  " relative path to current file
 set titlestring+=%(\ %a%)             " extra attributes
-
+" }}}
 
 " run the rooter plugin after a session is loaded
 autocmd BufRead,BufNewFile * Rooter
