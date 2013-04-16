@@ -1,45 +1,45 @@
 [submodule "bundle/buftabs"]
 	path = bundle/buftabs
-	url = git://github.com/vim-scripts/buftabs.git
+	url = https://github.com/vim-scripts/buftabs.git
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
+	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle/vim-tabular"]
 	path = bundle/vim-tabular
-	url = git://github.com/godlygeek/tabular.git
+	url = https://github.com/godlygeek/tabular.git
 [submodule "bundle/molokai"]
 	path = bundle/molokai
-	url = git://github.com/vim-scripts/molokai.git
+	url = https://github.com/vim-scripts/molokai.git
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
-	url = git://github.com/tpope/vim-unimpaired.git
+	url = https://github.com/tpope/vim-unimpaired.git
 [submodule "bundle/vim-blackboard"]
 	path = bundle/vim-blackboard
-	url = git://github.com/nelstrom/vim-blackboard.git
+	url = https://github.com/nelstrom/vim-blackboard.git
 [submodule "bundle/vim-HTML-AutoCloseTag"]
 	path = bundle/vim-HTML-AutoCloseTag
-	url = git://github.com/vim-scripts/HTML-AutoCloseTag.git
+	url = https://github.com/vim-scripts/HTML-AutoCloseTag.git
 [submodule "bundle/vim-gitolite"]
 	path = bundle/vim-gitolite
-	url = git://github.com/tmatilai/gitolite.vim.git
+	url = https://github.com/tmatilai/gitolite.vim.git
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
-	url = git://github.com/tpope/vim-surround.git
+	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/vim-bind"]
 	path = bundle/vim-bind
-	url = git://github.com/netdata/vim-bind.git
+	url = https://github.com/netdata/vim-bind.git
 [submodule "bundle/vim-puppet"]
 	path = bundle/vim-puppet
-	url = git://github.com/netdata/vim-puppet.git
+	url = https://github.com/netdata/vim-puppet.git
 [submodule "bundle/vim-tagbar"]
 	path = bundle/vim-tagbar
-	url = git://github.com/majutsushi/tagbar.git
+	url = https://github.com/majutsushi/tagbar.git
 [submodule "bundle/vim-rooter"]
 	path = bundle/vim-rooter
 	url = https://github.com/airblade/vim-rooter.git
