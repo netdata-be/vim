@@ -113,10 +113,12 @@ set sidescrolloff=5                   " Keep 5 lines at the size
 set showmatch			                    " show matching brackets
 set encoding=utf-8
 
-let g:acp_enableAtStartup = 0              " Disable AutoComplPop.
-let g:neocomplcache_enable_at_startup = 1  " Launches neocomplcache automatically on vim startup.
-let g:neocomplcache_enable_auto_select = 1 " AutoComplPop like behavior.
-
+let g:acp_enableAtStartup = 1              " Disable AutoComplPop.
+"let g:neocomplcache_enable_at_startup = 1  " Launches neocomplcache automatically on vim startup.
+"let g:neocomplcache_enable_auto_select = 1 " AutoComplPop like behavior
+"let g:neocomplcache_min_syntax_length = 3  " Sets minimum char length of syntax keyword
+"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 
 
