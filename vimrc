@@ -248,6 +248,7 @@ set whichwrap+=<,>,h,l
 let g:ctrlp_show_hidden = 0
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_max_height = 25
+let g:ctrlp_working_path_mode = 0
 let g:ctrlp_switch_buffer = 'ET'
 let g:ctrlp_extensions = ['tag', 'buffertag', 'filetype']
 noremap <leader>] :CtrlPTag<CR>
