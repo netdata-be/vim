@@ -73,9 +73,6 @@
 [submodule "bundle/colorizer"]
 	path = bundle/colorizer
 	url = https://github.com/lilydjwg/colorizer.git
-[submodule "bundle/AutoComplPop"]
-	path = bundle/AutoComplPop
-	url = https://github.com/vim-scripts/AutoComplPop.git
 [submodule "bundle/indentline"]
 	path = bundle/indentline
 	url = https://github.com/Yggdroot/indentLine.git
@@ -85,3 +82,12 @@
 [submodule "bundle/neocomplcache"]
 	path = bundle/neocomplcache
 	url = https://github.com/Shougo/neocomplcache.git
+[submodule "bundle/AutoComplPop-2"]
+	path = bundle/AutoComplPop-2
+	url = https://github.com/dirkwallenstein/vim-autocomplpop.git
+[submodule "bundle/L9"]
+	path = bundle/L9
+	url = https://github.com/vim-scripts/L9.git
+[submodule "bundle/localcomplete"]
+	path = bundle/localcomplete
+	url = https://github.com/dirkwallenstein/vim-localcomplete.git
