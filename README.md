@@ -6,15 +6,13 @@ Create symlinks:
 
     ln -s ~/.vim/vimrc ~/.vimrc
 
-Switch to the `~/.vim` directory, and fetch submodules:
+Install all plugins using the PluginInstall call from vundle:
 
-    cd ~/.vim
-    git submodule init
-    git submodule update
-
+    vim +PluginInstall +qall
+    
 Now build the vim-command-t switch to dir `~/.vim/bundle/vim-command-t/ruby/`
 
-	cd ~/.vim/bundle/vim-command-t/ruby/command-t/
+	cd ~/.vim/bundle/command-t/ruby/command-t/
 	ruby extconf.rb
 	make
 
@@ -23,10 +21,6 @@ In order for gists to work do the following steps:
     git config --global github.user netdata
 
 Now use the following README to continue configuring gist: https://github.com/mattn/gist-vim
-
-run the following command to ignore untracked changes:
-
-    for s in `git submodule  --quiet foreach 'echo $name'` ; do git config submodule.$s.ignore untracked ; done
 
 To have support for ctags in puppet create the following config : ~/.ctags and add this:
 

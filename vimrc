@@ -5,51 +5,48 @@
 " Created by wdh
 
 """ Load Plugins using Vundle {{{
-set runtimepath+=~/.vim/bundle/vundle
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
 
-Bundle 'dirkwallenstein/vim-autocomplpop'
-Bundle 'vim-scripts/L9'
-Bundle 'vim-scripts/AutoTag'
-Bundle 'vim-scripts/buftabs'
-Bundle 'lilydjwg/colorizer'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'kien/ctrlp.vim'
-Bundle 'endel/ctrlp-filetype.vim'
-Bundle 'vim-scripts/DetectIndent'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'Yggdroot/indentLine'
-Bundle 'dirkwallenstein/vim-localcomplete'
-Bundle 'Shougo/neocomplcache'
-Bundle 'JazzCore/neocomplcache-ultisnips'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-pathogen'
-Bundle 'Lokaltog/powerline'
-Bundle 'SirVer/ultisnips'
-Bundle 'vim-scripts/HTML-AutoCloseTag'
-Bundle 'netdata/vim-bind'
-Bundle 'nelstrom/vim-blackboard'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tmatilai/gitolite'
-Bundle 'netdata/vim-puppet'
-Bundle 'airblade/vim-rooter'
-Bundle 'tpope/vim-surround'
-Bundle 'godlygeek/tabular'
-Bundle 'majutsushi/tagbar'
-Bundle 'tpope/vim-unimpaired'
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+Plugin 'dirkwallenstein/vim-autocomplpop'
+Plugin 'vim-scripts/L9'
+Plugin 'vim-scripts/AutoTag'
+Plugin 'vim-scripts/buftabs'
+Plugin 'lilydjwg/colorizer'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'kien/ctrlp.vim'
+Plugin 'endel/ctrlp-filetype.vim'
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'vim-scripts/DetectIndent'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Yggdroot/indentLine'
+Plugin 'dirkwallenstein/vim-localcomplete'
+Plugin 'Shougo/neocomplcache'
+Plugin 'JazzCore/neocomplcache-ultisnips'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-pathogen'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'SirVer/ultisnips'
+Plugin 'vim-scripts/HTML-AutoCloseTag'
+Plugin 'netdata/vim-bind'
+Plugin 'nelstrom/vim-blackboard'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tmatilai/gitolite'
+Plugin 'netdata/vim-puppet'
+Plugin 'airblade/vim-rooter'
+Plugin 'tpope/vim-surround'
+Plugin 'godlygeek/tabular'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-unimpaired'
+
+call vundle#end()
 
 
 
-}}}
-
-
-"""" Load all plugins using pathogen {{{
-source ~llenstein/vim-autocomplpop.git/.vim/bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
-" }}}
+""" }}}
 
 " Settings for the gui_running {{{
 if has("gui_running")
@@ -298,11 +295,6 @@ noremap <leader>] :CtrlPTag<CR>
 noremap <leader>} :CtrlPBufTag<CR>
 noremap <leader>f :CtrlPFiletype<CR>
 " }}}
-" }}}
-
-" Powerline settings {{{
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-set noshowmode            " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 " }}}
 
 " the following line makes vim ignore camelCase and CamelCase words so they
