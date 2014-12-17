@@ -7,11 +7,7 @@ fi
 
 ln -s ~/.vim/vimrc ~/.vimrc
 
-cd ~/.vim
-git submodule init
-git submodule update
-cd ~/.vim
-for s in `git submodule  --quiet foreach 'echo $name'` ; do git config submodule.$s.ignore untracked ; done
+vim +PluginInstall +qall
 
 echo "Setting up font for powerline"
 
