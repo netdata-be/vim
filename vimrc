@@ -4,8 +4,49 @@
 "
 " Created by wdh
 
+""" Load Plugins using Vundle {{{
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+Bundle 'dirkwallenstein/vim-autocomplpop'
+Bundle 'vim-scripts/L9'
+Bundle 'vim-scripts/AutoTag'
+Bundle 'vim-scripts/buftabs'
+Bundle 'lilydjwg/colorizer'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'kien/ctrlp.vim'
+Bundle 'endel/ctrlp-filetype.vim'
+Bundle 'vim-scripts/DetectIndent'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'Yggdroot/indentLine'
+Bundle 'dirkwallenstein/vim-localcomplete'
+Bundle 'Shougo/neocomplcache'
+Bundle 'JazzCore/neocomplcache-ultisnips'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-pathogen'
+Bundle 'Lokaltog/powerline'
+Bundle 'SirVer/ultisnips'
+Bundle 'vim-scripts/HTML-AutoCloseTag'
+Bundle 'netdata/vim-bind'
+Bundle 'nelstrom/vim-blackboard'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tmatilai/gitolite'
+Bundle 'netdata/vim-puppet'
+Bundle 'airblade/vim-rooter'
+Bundle 'tpope/vim-surround'
+Bundle 'godlygeek/tabular'
+Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-unimpaired'
+
+
+
+}}}
+
+
 """" Load all plugins using pathogen {{{
-source ~/.vim/bundle/pathogen/autoload/pathogen.vim
+source ~llenstein/vim-autocomplpop.git/.vim/bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 " }}}
@@ -110,10 +151,12 @@ set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png
 set background=dark                   " when syntax is on the colors will be best visible on a dark background
 set showcmd                           " show the command being typed
 set sidescrolloff=5                   " Keep 5 lines at the size
-set showmatch			                    " show matching brackets
+set showmatch			                    " show matching brackets 
+
 set encoding=utf-8
 
 let g:acp_enableAtStartup = 1              " Disable AutoComplPop.
+let g:acp_completeoptPreview = 1
 "let g:neocomplcache_enable_at_startup = 1  " Launches neocomplcache automatically on vim startup.
 "let g:neocomplcache_enable_auto_select = 1 " AutoComplPop like behavior
 "let g:neocomplcache_min_syntax_length = 3  " Sets minimum char length of syntax keyword
